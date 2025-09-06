@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: book-explorer-backend
+    plan: free
+    env: docker
+    docker:
+      dockerfile: Dockerfile
+    envVars:
+      - key: DB_HOST
+        value: sql5.freemysqlhosting.net
+      - key: DB_USER
+        fromSecret: DB_USER
+      - key: DB_PASSWORD
+        fromSecret: DB_PASSWORD
+      - key: DB_NAME
+        fromSecret: DB_NAME
+      - key: PORT
+        value: 10000
